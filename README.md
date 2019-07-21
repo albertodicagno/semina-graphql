@@ -2,7 +2,7 @@
 
 ### API GraphQL per il progetto SEMINA
 
-Maggiori informazioni all'articolo su https://medium.com/@adicagno
+Maggiori informazioni all'articolo su [https://medium.com/@dicagno](https://medium.com/@dicagno/graphql-e-mobilita-urbana-a-bari-5e1533568b17)
 
 ### Utilizzo
 
