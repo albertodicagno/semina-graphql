@@ -1,0 +1,61 @@
+"Utile per inserire date"
+scalar Date,
+
+"Corsa autobus AMTAB"
+type Corsa {
+    "Direzione della corsa (1=andata, -1=ritorno)"
+    Direzione: Int!
+ 
+    "ID della corsa"
+    IdCorsa: Int!
+
+    "ID della fermata/palina"
+    IdFermata: String!
+    
+    "Orario in formato ISO"
+    Orario: Date!
+
+    "Numero progressivo del risultato dalla API SEMINA"
+    Progressivo: Int
+},
+
+"Linea AMTAB"
+type Linea {
+    "Descrizione della linea e dei capolinea"
+    DescrizioneLinea: String
+
+    "Identificativo della linea"
+    IdLinea: String!
+
+    "Direzione linea dalla fermata/palina"
+    Direzione: Int
+},
+
+"Fermata AMTAB"
+type Fermata {
+    "Descrizione della fermata/palina"
+    DescrizioneFermata: String
+
+    "Distanza in metri dalle coordinate indicate nella query"
+    DistanzaMetri: String
+
+    "Identificativo della fermata/palina"
+    IdFermata: String
+
+    "Lista delle linee servite dalla palina"
+    ListaLinee: [Linea]
+},
+
+type Query {
+    "Restituisce le corse del servizio giornaliero"
+    servizioGiornaliero(linea: String!): [Corsa]
+
+    "Restituisce le linee del servizio urbano"
+    linee: [Linea]
+
+    "Restituisce il numero delle corse nella giornata odierna"
+    numeroCorse: Int
+
+    "Restituisce il numero delle fermate nei pressi delle coordinate indicate"
+    fermateVicine(lat: Float!, lon: Float!, range: Int): [Fermata]
+}
